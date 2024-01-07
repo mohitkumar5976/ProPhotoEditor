@@ -6,9 +6,9 @@ import { IconSize } from '../../../utils/Size';
 
 import { Context } from '../../../context/Context';
 export default function Adjust() {
-  const {closeModal} = useContext(Context);
+  const {openModal} = useContext(Context);
   return (
-    <TouchableOpacityFC handleFun={() => closeModal({adjust: true})}>
+    <TouchableOpacityFC handleFun={() => openModal('adjust')}>
       <Fontisto name="equalizer" size={IconSize} color="#ffff" />
       <TextFC>Adjust</TextFC>
     </TouchableOpacityFC>

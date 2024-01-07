@@ -22,9 +22,9 @@ export default function BlurModal() {
         </View>
         <View>
           <Slider
-            minimumValue={0}
+            minimumValue={5}
             onValueChange={e => handleRangeValue('blur', e)}
-            maximumValue={20}
+            maximumValue={15}
             minimumTrackTintColor="#FFFFFF"
             maximumTrackTintColor="#000000"
           />

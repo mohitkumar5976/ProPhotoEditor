@@ -21,32 +21,26 @@ export default function BackgroundModal() {
         />
       </View>
 
-      <View>
+      <View className="flex-row items-center">
+        <TouchableOpacity
+          activeOpacity={1}
+          className={`w-12 h-12 flex-row items-center justify-center`}
+          onPress={() => setBgImage('')}>
+          <Octicons name="circle-slash" size={35} color="#ffff" />
+        </TouchableOpacity>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          {backgroundList.map(item =>
-            item.image ? (
-              <TouchableOpacity
-                key={item.id}
-                activeOpacity={1}
-                className={`w-12 h-12 flex-row items-center justify-center`}
-                onPress={() => setBgImage(item.bgImage)}>
-                <Octicons name="circle-slash" size={35} color="#ffff" />
-              </TouchableOpacity>
-            ) : (
-              <>
-                <TouchableOpacity
-                  className="mx-1"
-                  key={item.id}
-                  onPress={() => setBgImage(`${item.bgImage}`)}>
-                  <Image
-                    source={{uri: item.bgImage}}
-                    className="w-12 h-12 rounded-full "
-                    resizeMode="cover"
-                  />
-                </TouchableOpacity>
-              </>
-            ),
-          )}
+          {backgroundList.map(item => (
+            <TouchableOpacity
+              className="mx-1"
+              key={item.id}
+              onPress={() => setBgImage(`${item.bgImage}`)}>
+              <Image
+                source={{uri: item.bgImage}}
+                className="w-12 h-12 rounded-full "
+                resizeMode="cover"
+              />
+            </TouchableOpacity>
+          ))}
         </ScrollView>
       </View>
     </View>
