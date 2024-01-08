@@ -49,7 +49,7 @@ export default function AdjustModal() {
                 style={{height: 40}}
                 minimumValue={0}
                 onValueChange={e => handleRangeValue('Imageblur', e)}
-                maximumValue={8}
+                maximumValue={5}
                 minimumTrackTintColor="#FFFFFF"
                 maximumTrackTintColor="#000000"
               />

@@ -12,7 +12,7 @@ export default function CameraButton() {
         onPress={handleCameraLaunch}
         className="flex-row items-center mb-2 gap-x-3 pl-2 py-2 pr-3 rounded-lg bg-blue-800 ">
         <Feather name="camera" size={30} color="#ffff" />
-        <Text className="text-lg text-white">Take Photo</Text>
+        <Text className="text-lg text-white">Take from Camera</Text>
       </TouchableOpacity>
     </>
   );

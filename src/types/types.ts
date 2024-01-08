@@ -6,6 +6,7 @@ export type ModalVisibleState = {
   bg?: boolean;
   edit?: boolean;
   blur?: boolean;
+  filter?:boolean;
 };
 
 export type RangeState = {
@@ -38,6 +39,8 @@ export type ContextType = {
   setScale: (scale: number) => void;
   bgColor: string;
   setBgColor: (bgColor: string) => void;
+  imageFilterColor:string,
+  setImageFilterColor:(filter:string)=>void;
   bgImage: string;
   setBgImage: (bgImage: string) => void;
   ratio: number;

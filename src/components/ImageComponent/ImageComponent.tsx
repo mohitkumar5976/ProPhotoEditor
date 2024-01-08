@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {Context} from '../../context/Context';
 import {ImageBackground, View} from 'react-native';
+import {responsiveWidth} from 'react-native-responsive-dimensions';
 export default function ImageComponent() {
   const {
     borderColor,
@@ -8,18 +9,23 @@ export default function ImageComponent() {
     selectedImage,
     imageProperty,
     scale,
-    bgImage,
     visible,
+    imageFilterColor,
   } = useContext(Context);
+
+  let backGroundColor =
+    (rangeValue.saturation && `hsla(360,100%,100%,${rangeValue.saturation})`) ||
+    (rangeValue.brightness && `rgba(0,0,0,${rangeValue.brightness})`) ||
+    imageFilterColor;
+  let setImageWidth = imageProperty.width || visible.blur || visible.bg;
   return (
     <>
       <ImageBackground
         blurRadius={rangeValue.imageBlur}
         source={{uri: selectedImage}}
-        className={`h-full absolute ${
-          imageProperty.width || bgImage || visible.blur ? 'w-3/5 ' : 'w-full '
-        }`}
+        className={`h-full mx-auto `}
         style={{
+          width: setImageWidth ? responsiveWidth(62) : 0,
           borderColor: `${
             borderColor.length !== 0 ? borderColor : 'transparent'
           }`,
@@ -33,13 +39,7 @@ export default function ImageComponent() {
         <View
           className="w-full h-full"
           style={{
-            backgroundColor: `${
-              rangeValue.brightness
-                ? `rgba(0,0,0,${rangeValue.brightness})`
-                : rangeValue.saturation
-                ? `hsla(360, 100%, 100%, ${rangeValue.saturation})`
-                : null
-            }`,
+            backgroundColor: `${backGroundColor}`,
           }}></View>
       </ImageBackground>
     </>

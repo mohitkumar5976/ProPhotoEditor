@@ -11,7 +11,7 @@ export default function GalleryButton() {
       onPress={openImagePicker}
       className="flex-row items-center gap-x-3 pl-2 py-2 pr-3 rounded-lg bg-blue-800 ">
       <FontAwesome name="photo" size={30} color="#ffff" />
-      <Text className="text-lg text-white">Take Photo</Text>
+      <Text className="text-lg text-white">Take from Gallery</Text>
     </TouchableOpacity>
   );
 }

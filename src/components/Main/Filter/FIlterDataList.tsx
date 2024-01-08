@@ -1,0 +1,26 @@
+export const filterDataList =[
+    {
+        id:1,
+        filterColor:'rgba(0,0,0,0)'
+    },
+    {
+        id:2,
+        filterColor:'rgba(250,170,90,.4)'
+    },
+    {
+        id:3,
+        filterColor:'rgba(150,150,240,.4)'
+    },
+    {
+        id:4,
+        filterColor:'rgba(150,50,250,.4)'
+    },
+    {
+        id:5,
+        filterColor:'rgba(250,250,235,.4)'
+    },
+    {
+        id:6,
+        filterColor:'rgba(150,180,100,.3)'
+    },
+]

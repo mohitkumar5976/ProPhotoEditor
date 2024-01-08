@@ -13,10 +13,10 @@ export default function RootNavigation() {
         {
           headerShown:false
         }
-      }/>
+      }/> */}
       <Stack.Screen name="Home" component={HomeScreen} options={{
         headerShown:false
-      }}/> */}
+      }}/>
         <Stack.Screen name="Main" component={MainScreen} options={{
         headerShown:false
       }}/>

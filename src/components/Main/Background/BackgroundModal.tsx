@@ -1,17 +1,18 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import Octicons from 'react-native-vector-icons/Octicons';
 import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import {IconSize} from '../../../utils/Size';
 import {Context} from '../../../context/Context';
 import {backgroundList} from './BackgroundList';
+import Slider from '@react-native-community/slider';
 
 export default function BackgroundModal() {
-  const {closeModal, setBgColor, setBgImage} = useContext(Context);
+  const {closeModal, setBgImage,rangeValue, handleRangeValue} = useContext(Context);
 
   return (
-    <View className="w-full bg-zinc-900 pt-2 px-2 pb-6 flex-col gap-y-2 absolute bottom-0 z-10">
-      <View className="flex-row justify-between items-center px-2 pb-3">
+    <View className="w-full bg-zinc-900 pt-2 pb-5 flex-col gap-y-2 absolute bottom-0 z-10">
+      <View className="flex-row justify-between items-center  px-3 pb-3">
         <Text className="text-lg text-white">Background</Text>
         <FontAwesome6
           name="check"
@@ -21,7 +22,7 @@ export default function BackgroundModal() {
         />
       </View>
 
-      <View className="flex-row items-center">
+      <View className="flex-row items-center px-2">
         <TouchableOpacity
           activeOpacity={1}
           className={`w-12 h-12 flex-row items-center justify-center`}
@@ -42,6 +43,18 @@ export default function BackgroundModal() {
             </TouchableOpacity>
           ))}
         </ScrollView>
+      </View>
+      <View className="flex-row justify-between items-center px-3 pt-2">
+        <Text className="text-lg text-white">Blur</Text>
+      </View>
+      <View>
+        <Slider
+          minimumValue={3}
+          onValueChange={e => handleRangeValue('blur', e)}
+          maximumValue={8}
+          minimumTrackTintColor="#FFFFFF"
+          maximumTrackTintColor="#000000"
+        />
       </View>
     </View>
   );

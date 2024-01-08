@@ -1,9 +1,11 @@
 import React, {useContext} from 'react';
-import TouchableOpacityFC from '../Reusable/TouchableOpacityFC';
-import TextFC from '../Reusable/TextFC';
+
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {IconSize} from '../../utils/Size';
-import {Context} from '../../context/Context';
+import {Context} from '../../../context/Context';
+import TouchableOpacityFC from '../../Reusable/TouchableOpacityFC';
+import TextFC from '../../Reusable/TextFC';
+import {IconSize} from '../../../utils/Size';
+
 export default function Ratio() {
   const {openModal} = useContext(Context);
   return (
