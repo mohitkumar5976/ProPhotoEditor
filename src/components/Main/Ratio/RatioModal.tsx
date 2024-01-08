@@ -29,7 +29,7 @@ export default function RatioModal() {
     <Fragment>
       <View className="w-full bg-zinc-900 p-2 flex-col absolute bottom-0 z-10">
         <View className="flex-row justify-between items-center px-2 pb-4 pt-2">
-          <Text className="text-lg text-white">Border</Text>
+          <Text className="text-lg text-white">Ratio</Text>
           <FontAwesome6
             name="check"
             size={IconSize}

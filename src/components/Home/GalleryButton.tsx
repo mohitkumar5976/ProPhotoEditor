@@ -2,9 +2,29 @@ import React, {useContext} from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Context} from '../../context/Context';
+import ImageCropPicker from 'react-native-image-crop-picker';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {useNavigation} from '@react-navigation/native';
+import {RootStackNavigatorParamsList} from '../../types/navigationTypes';
 
 export default function GalleryButton() {
-  const {openImagePicker} = useContext(Context);
+  const {setSelectedImage} = useContext(Context);
+  const navigation =
+    useNavigation<StackNavigationProp<RootStackNavigatorParamsList>>();
+
+  const openImagePicker = () => {
+    ImageCropPicker.openPicker({
+      width: 300,
+      height: 400,
+      mediaType: 'photo',
+      cropping: true,
+    })
+      .then(image => {
+        setSelectedImage(image.path);
+        navigation.navigate('Main');
+      })
+      .catch(err => console.log(err.message));
+  };
 
   return (
     <TouchableOpacity

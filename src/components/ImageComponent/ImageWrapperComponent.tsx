@@ -11,23 +11,31 @@ export default function ImageWrapperComponent() {
     selectedImage,
     imageProperty,
     scale,
+    imageFilterColor,
     bgImage,
+    borderColor,
   } = useContext(Context);
 
-  const backgroundBlur = visible.bg ? rangeValue.blur : 0;
+  const backgroundBlur = visible.bg || visible.adjust? rangeValue.blur : 0;
   const backgroundImage = visible.bg
     ? bgImage
       ? bgImage
       : selectedImage
     : selectedImage;
-
+  let backGroundColor =
+    (rangeValue.saturation && `hsla(360,100%,100%,${rangeValue.saturation})`) ||
+    (rangeValue.brightness && `rgba(0,0,0,${rangeValue.brightness})`) ||
+    imageFilterColor;
   return (
     <View
       style={{
         aspectRatio: ratio,
+        borderColor: borderColor,
+        borderWidth: rangeValue.border,
       }}>
+      
       <ImageBackground
-        blurRadius={backgroundBlur}
+      blurRadius={backgroundBlur}
         source={{
           uri: `${backgroundImage}`,
         }}
@@ -40,7 +48,11 @@ export default function ImageWrapperComponent() {
           ],
         }}
       />
-
+      <View
+        className="w-full h-full absolute"
+        style={{
+          backgroundColor: `${backGroundColor}`,
+        }}></View>
       <ImageComponent />
     </View>
   );

@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import {IconSize} from '../../../utils/Size';
-import TextFC from '../../Reusable/TextFC';
 import {Context} from '../../../context/Context';
 import {
   responsiveHeight,

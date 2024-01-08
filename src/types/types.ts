@@ -49,6 +49,5 @@ export type ContextType = {
   openModal: (value: string) => void;
   closeModal: (value: string) => void;
   handleRangeValue: (value: string, e: any) => void;
-  handleCameraLaunch: () => void;
-  openImagePicker: () => void;
+  
 };

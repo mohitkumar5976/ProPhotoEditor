@@ -2,9 +2,28 @@ import React, {useContext} from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import {Context} from '../../context/Context';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackNavigatorParamsList} from '../../types/navigationTypes';
+import ImageCropPicker from 'react-native-image-crop-picker';
 
 export default function CameraButton() {
-  const {handleCameraLaunch} = useContext(Context);
+  const {setSelectedImage} = useContext(Context);
+  const navigation =
+    useNavigation<StackNavigationProp<RootStackNavigatorParamsList>>();
+  const handleCameraLaunch = () => {
+    ImageCropPicker.openCamera({
+      width: 300,
+      height: 400,
+      mediaType: 'photo',
+      cropping: true,
+    })
+      .then(image => {
+        setSelectedImage(image.path);
+        navigation.navigate('Main');
+      })
+      .catch(err => console.log(err.message));
+  };
 
   return (
     <>

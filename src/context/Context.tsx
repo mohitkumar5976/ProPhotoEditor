@@ -1,16 +1,11 @@
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 import React, {ReactNode, createContext, useState} from 'react';
-import {launchCamera} from 'react-native-image-picker';
-import {launchImageLibrary} from 'react-native-image-picker';
-import {RootStackNavigatorParamsList} from '../types/navigationTypes';
+
 import {
   ContextType,
   ImagePropertyState,
   ModalVisibleState,
   RangeState,
 } from '../types/types';
-import ImageCropPicker from 'react-native-image-crop-picker';
 
 const ContextData: ContextType = {
   selectedImage: '',
@@ -37,18 +32,14 @@ const ContextData: ContextType = {
   openModal: () => {},
   closeModal: () => {},
   handleRangeValue: () => {},
-  handleCameraLaunch: () => {},
-  openImagePicker: () => {},
 };
 
 export const Context = createContext<ContextType>(ContextData);
 export default function ContextProvider({children}: {children: ReactNode}) {
-  const navigation =
-    useNavigation<StackNavigationProp<RootStackNavigatorParamsList>>();
-  const [selectedImage, setSelectedImage] = useState<string>("");
+  const [selectedImage, setSelectedImage] = useState<string>('');
   const [visible, setVisible] = useState<ModalVisibleState>({});
   const [rangeValue, setRangeValue] = useState<RangeState>({
-    blur:0
+    blur: 0,
   });
   const [borderColor, setBorderColor] = useState<string>('');
   const [bgColor, setBgColor] = useState<string>('');
@@ -76,7 +67,6 @@ export default function ContextProvider({children}: {children: ReactNode}) {
         blur: true,
       });
     } else if (value === 'bg') {
-    
       setVisible({
         bg: true,
       });
@@ -146,35 +136,6 @@ export default function ContextProvider({children}: {children: ReactNode}) {
     }
   };
 
-  const handleCameraLaunch = () => {
-    ImageCropPicker.openCamera({
-      width: 300,
-      height: 400,
-      mediaType: 'photo',
-      cropping: true,
-    })
-      .then(image => {
-        console.log(image);
-        setSelectedImage(image.path);
-        navigation.navigate('Main');
-      })
-      .catch(err => console.log(err.message));
-  };
-
-  const openImagePicker = () => {
-    ImageCropPicker.openPicker({
-      width: 300,
-      height: 400,
-      mediaType: 'photo',
-      cropping: true,
-    })
-      .then(image => {
-        console.log(image);
-        setSelectedImage(image.path);
-        navigation.navigate('Main');
-      })
-      .catch(err => console.log(err.message));
-  };
   return (
     <Context.Provider
       value={{
@@ -201,8 +162,6 @@ export default function ContextProvider({children}: {children: ReactNode}) {
         rangeValue,
         setRangeValue,
         handleRangeValue,
-        openImagePicker,
-        handleCameraLaunch,
       }}>
       {children}
     </Context.Provider>
