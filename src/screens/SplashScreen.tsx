@@ -31,7 +31,7 @@ export default function SplashScreen({navigation}: {navigation: Props}) {
             source={require('../utils/logo.webp')}
           />
           <Text className="text-black text-center text-lg font-bold">
-            Photo Editor
+           Photo Editor
           </Text>
         </Animated.View>
       </View>
