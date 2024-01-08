@@ -9,11 +9,11 @@ const Stack = createStackNavigator<RootStackNavigatorParamsList>();
 export default function RootNavigation() {
   return (
     <Stack.Navigator>
-      {/* <Stack.Screen name="Splash" component={SplashScreen} options={
+      <Stack.Screen name="Splash" component={SplashScreen} options={
         {
           headerShown:false
         }
-      }/> */}
+      }/>
       <Stack.Screen name="Home" component={HomeScreen} options={{
         headerShown:false
       }}/>
