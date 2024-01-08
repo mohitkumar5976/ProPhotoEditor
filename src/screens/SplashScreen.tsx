@@ -28,12 +28,10 @@ export default function SplashScreen({navigation}: {navigation: Props}) {
           className="flex-col items-center gap-y-1">
           <Image
             style={{width: 110, height: 110}}
-            source={{
-              uri: `https://play-lh.googleusercontent.com/5Ggwna32iHTwp-U0cGzXAVoEEkd3PxEq2ZJGe_w17NE602aKeeuDhIHWXCZRUar7Ijs=w600-h300-pc0xffffff-pd`,
-            }}
+            source={require('../utils/logo.webp')}
           />
           <Text className="text-black text-center text-lg font-bold">
-            Pro Photo Editor
+            Photo Editor
           </Text>
         </Animated.View>
       </View>
