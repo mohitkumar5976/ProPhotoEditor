@@ -7,17 +7,17 @@ export default function ImageComponent() {
     rangeValue,
     selectedImage,
     imageProperty,
-    visible,setSelectedImage
+    visible
   } = useContext(Context);
 
  
   let setImageWidth = imageProperty.width || visible.blur || visible.bg;
   return (
     <>
-      <ImageBackground
+      <ImageBackground 
         blurRadius={rangeValue.imageBlur}
         source={{uri: selectedImage}}
-        className={`h-full mx-auto `}
+        className={`h-full`}
         style={{
           width: setImageWidth ? responsiveWidth(62) : 0,
        

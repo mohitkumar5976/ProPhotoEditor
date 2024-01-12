@@ -12,7 +12,7 @@ export default function BorderModal() {
 
   useEffect(()=>{
 setRangeValue({
-  border:5
+  border:2
 })
   },[])
   return (

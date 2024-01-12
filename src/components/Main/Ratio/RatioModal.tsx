@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
-
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Octicons from 'react-native-vector-icons/Octicons';
 import {Context} from '../../../context/Context';
@@ -17,12 +16,12 @@ import TextFC from '../../Reusable/TextFC';
 
 export default function RatioModal() {
   const {closeModal, setRatio} = useContext(Context);
-  const handleRatio = (value: number) => {
-    setRatio(value);
-  };
 
   const setOriginalImage = () => {
-    handleRatio(3 / 4);
+    setRatio({
+      width: '',
+      height: '',
+    });
     ToastAndroid.show('Original Image', ToastAndroid.SHORT);
   };
   return (
@@ -47,7 +46,12 @@ export default function RatioModal() {
             </TouchableOpacity>
             <TouchableOpacity
               className="flex-col items-center w-12"
-              onPress={() => handleRatio(1)}>
+              onPress={() =>
+                setRatio({
+                  width: '1',
+                  height: '1',
+                })
+              }>
               <View className="flex-col items-center justify-center p-1 bg-gray-700">
                 <AntDesign name="instagram" size={IconSize} color="#ffff" />
                 <TextFC>1:1</TextFC>
@@ -55,7 +59,12 @@ export default function RatioModal() {
             </TouchableOpacity>
             <TouchableOpacity
               className="flex-col items-center w-12"
-              onPress={() => handleRatio(4 / 5)}>
+              onPress={() =>
+                setRatio({
+                  width: '4',
+                  height: '5',
+                })
+              }>
               <View className="flex-col items-center justify-center p-1 bg-gray-700">
                 <AntDesign name="instagram" size={IconSize} color="#ffff" />
                 <TextFC>4:5</TextFC>
@@ -63,7 +72,12 @@ export default function RatioModal() {
             </TouchableOpacity>
             <TouchableOpacity
               className="flex-col items-center w-12"
-              onPress={() => handleRatio(9 / 16)}>
+              onPress={() =>
+                setRatio({
+                  width: '3',
+                  height: '4',
+                })
+              }>
               <View className="flex-col items-center justify-center p-1 bg-gray-700">
                 <AntDesign name="instagram" size={IconSize} color="#ffff" />
                 <TextFC>Story</TextFC>
@@ -71,28 +85,48 @@ export default function RatioModal() {
             </TouchableOpacity>
             <TouchableOpacity
               className="flex-col items-center justify-center w-12"
-              onPress={() => handleRatio(2 / 3)}>
+              onPress={() =>
+                setRatio({
+                  width: '2',
+                  height: '3',
+                })
+              }>
               <View className="flex-col items-center justify-center p-1 bg-gray-700 h-12">
                 <TextFC>2:3</TextFC>
               </View>
             </TouchableOpacity>
             <TouchableOpacity
               className="flex-col items-center justify-center w-12"
-              onPress={() => handleRatio(3 / 2)}>
+              onPress={() =>
+                setRatio({
+                  width: '3',
+                  height: '2',
+                })
+              }>
               <View className="flex-col items-center justify-center p-1 bg-gray-700 w-12">
                 <TextFC>3:2</TextFC>
               </View>
             </TouchableOpacity>
             <TouchableOpacity
               className="flex-col items-center justify-center w-12"
-              onPress={() => handleRatio(9 / 16)}>
+              onPress={() =>
+                setRatio({
+                  width: '9',
+                  height: '16',
+                })
+              }>
               <View className="flex-col items-center justify-center p-0.5 bg-gray-700 h-12">
                 <TextFC>9:16</TextFC>
               </View>
             </TouchableOpacity>
             <TouchableOpacity
               className="flex-col items-center justify-center w-12"
-              onPress={() => handleRatio(16 / 9)}>
+              onPress={() =>
+                setRatio({
+                  width: '16',
+                  height: '9',
+                })
+              }>
               <View className="flex-col items-center justify-center p-1 bg-gray-700 w-12">
                 <TextFC>16:9</TextFC>
               </View>

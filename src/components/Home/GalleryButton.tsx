@@ -18,8 +18,10 @@ export default function GalleryButton() {
       height: 400,
       mediaType: 'photo',
       cropping: true,
+      includeBase64: true,
     })
       .then(image => {
+        console.log(image.filename)
         setSelectedImage(image.path);
         navigation.navigate('Main');
       })

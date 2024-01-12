@@ -1,6 +1,6 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {Context} from '../../context/Context';
-import {ImageBackground, View} from 'react-native';
+import {Dimensions, Image, ImageBackground, View} from 'react-native';
 import ImageComponent from './ImageComponent';
 
 export default function ImageWrapperComponent() {
@@ -16,7 +16,8 @@ export default function ImageWrapperComponent() {
     borderColor,
   } = useContext(Context);
 
-  const backgroundBlur = visible.bg || visible.adjust? rangeValue.blur : 0;
+  const backgroundBlur = visible.bg || visible.adjust ? rangeValue.blur : 0;
+
   const backgroundImage = visible.bg
     ? bgImage
       ? bgImage
@@ -26,34 +27,41 @@ export default function ImageWrapperComponent() {
     (rangeValue.saturation && `hsla(360,100%,100%,${rangeValue.saturation})`) ||
     (rangeValue.brightness && `rgba(0,0,0,${rangeValue.brightness})`) ||
     imageFilterColor;
+
   return (
-    <View
-      style={{
-        aspectRatio: ratio,
-        borderColor: borderColor,
-        borderWidth: rangeValue.border,
-      }}>
-      
-      <ImageBackground
-      blurRadius={backgroundBlur}
-        source={{
-          uri: `${backgroundImage}`,
-        }}
-        className="h-full w-full absolute"
-        style={{
-          transform: [
-            {rotateY: `${imageProperty.mirror ? '180deg' : '0deg'}`},
-            {rotateX: `${imageProperty.flip ? '180deg' : '0deg'}`},
-            {scale: scale},
-          ],
-        }}
-      />
+    <>
       <View
-        className="w-full h-full absolute"
+        className="flex-row justify-center"
         style={{
-          backgroundColor: `${backGroundColor}`,
-        }}></View>
-      <ImageComponent />
-    </View>
+          aspectRatio: `${ratio.width ? ratio.width : 1}/${
+            ratio.height ? ratio.height : 1
+          }`,
+        }}>
+        <ImageBackground
+          blurRadius={backgroundBlur}
+          source={{
+            uri: `${backgroundImage ? backgroundImage : selectedImage}`,
+          }}
+          style={{
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            borderColor: borderColor ? borderColor : 'transparent',
+            borderWidth: rangeValue.border,
+            transform: [
+              {rotateY: `${imageProperty.mirror ? '180deg' : '0deg'}`},
+              {rotateX: `${imageProperty.flip ? '180deg' : '0deg'}`},
+              {scale: scale},
+            ],
+          }}>
+          <View
+            className="w-full h-full absolute"
+            style={{
+              backgroundColor: `${backGroundColor}`,
+            }}></View>
+        </ImageBackground>
+        <ImageComponent />
+      </View>
+    </>
   );
 }

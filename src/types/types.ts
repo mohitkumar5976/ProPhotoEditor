@@ -6,7 +6,7 @@ export type ModalVisibleState = {
   bg?: boolean;
   edit?: boolean;
   blur?: boolean;
-  filter?:boolean;
+  filter?: boolean;
 };
 
 export type RangeState = {
@@ -24,6 +24,11 @@ export type ImagePropertyState = {
   flip?: boolean;
 };
 
+export type RatioData = {
+  width?: string;
+  height?: string;
+};
+
 export type ContextType = {
   selectedImage: string;
   setSelectedImage: (s: string) => void;
@@ -39,15 +44,14 @@ export type ContextType = {
   setScale: (scale: number) => void;
   bgColor: string;
   setBgColor: (bgColor: string) => void;
-  imageFilterColor:string,
-  setImageFilterColor:(filter:string)=>void;
+  imageFilterColor: string;
+  setImageFilterColor: (filter: string) => void;
   bgImage: string;
   setBgImage: (bgImage: string) => void;
-  ratio: number;
-  setRatio: (ratio: number) => void;
+  ratio: RatioData;
+  setRatio: (ratio:RatioData) => void;
 
   openModal: (value: string) => void;
   closeModal: (value: string) => void;
   handleRangeValue: (value: string, e: any) => void;
-  
 };

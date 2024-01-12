@@ -8,7 +8,7 @@ import {backgroundList} from './BackgroundList';
 import Slider from '@react-native-community/slider';
 
 export default function BackgroundModal() {
-  const {closeModal, setBgImage,rangeValue, handleRangeValue} = useContext(Context);
+  const {closeModal, setBgImage, handleRangeValue} = useContext(Context);
 
   return (
     <View className="w-full bg-zinc-900 pt-2 pb-5 flex-col gap-y-2 absolute bottom-0 z-10">
