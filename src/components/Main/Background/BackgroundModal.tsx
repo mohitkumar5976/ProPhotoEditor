@@ -50,7 +50,7 @@ export default function BackgroundModal() {
       <View>
         <Slider
           minimumValue={0}
-          onValueChange={e => handleRangeValue('blur', e)}
+          onValueChange={e => handleRangeValue('Imageblur', e)}
           maximumValue={8}
           minimumTrackTintColor="#FFFFFF"
           maximumTrackTintColor="#000000"
