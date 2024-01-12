@@ -48,7 +48,7 @@ export default function AdjustModal() {
               <Slider
                 style={{height: 40}}
                 minimumValue={0}
-                onValueChange={e => handleRangeValue('Imageblur', e)}
+                onValueChange={e => handleRangeValue('blur', e)}
                 maximumValue={5}
                 minimumTrackTintColor="#FFFFFF"
                 maximumTrackTintColor="#000000"
