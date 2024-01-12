@@ -9,7 +9,7 @@ const Stack = createStackNavigator<RootStackNavigatorParamsList>();
 export default function RootNavigation() {
   return (
     <Stack.Navigator>
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Splash"
         component={SplashScreen}
         options={{
@@ -22,7 +22,7 @@ export default function RootNavigation() {
         options={{
           headerShown: false,
         }}
-      />
+      /> */}
       <Stack.Screen
         name="Main"
         component={MainScreen}

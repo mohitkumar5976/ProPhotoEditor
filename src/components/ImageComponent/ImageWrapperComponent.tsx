@@ -16,7 +16,7 @@ export default function ImageWrapperComponent() {
     borderColor,
   } = useContext(Context);
 
-  const backgroundBlur = visible.bg || visible.adjust ? rangeValue.blur : 0;
+  const backgroundBlur = visible.bg || visible.adjust ? rangeValue.imageBlur : 0;
 
   const backgroundImage = visible.bg
     ? bgImage
